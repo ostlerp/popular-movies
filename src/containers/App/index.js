@@ -5,6 +5,7 @@ import Waypoint from 'react-waypoint';
 import { MovieActions } from '../../actions';
 import MovieList from '../../components/MovieList';
 import Movie from '../../components/Movie';
+import Header from '../../components/Header';
 
 class App extends React.Component {
 
@@ -24,11 +25,12 @@ class App extends React.Component {
 
 		return (
 			<div>
-				<h1>Popular Movies</h1>
+                <Header text="Popular Movies" />
                 <MovieList>
                     { results.map(item => <Movie key={item.id} title={item.title} image={item.backdrop_path} />) }
                 </MovieList>
-                
+
+
                 <Waypoint onEnter={this.nextPage} />
 			</div>
 		);

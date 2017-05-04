@@ -1,0 +1,16 @@
+.movie {
+    position: relative;
+    height: 170px;
+    
+    p {
+        position: absolute;
+        color: white;
+        left: 10px;
+        bottom: 0;
+        font-weight: bold;
+    }
+
+    img {
+        opacity: .5;
+    }
+}
