@@ -12,6 +12,7 @@ class App extends React.Component {
 
 	componentDidMount() {
 		this.props.dispatch(MovieActions.fetchMovies(1));
+        this.props.dispatch(MovieActions.fetchMovies(2));
 	}
 
 	render() {

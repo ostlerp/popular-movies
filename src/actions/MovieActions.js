@@ -12,10 +12,10 @@ let fetchingMovies = () => {
     };
 };
 
-let receiveMovies = (Movies) => {
+let receiveMovies = (data) => {
     return {
         type: RECEIVE_MOVIES,
-        Movies
+        data
     };
 };
 
