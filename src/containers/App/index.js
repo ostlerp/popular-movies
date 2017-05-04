@@ -2,10 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Waypoint from 'react-waypoint';
 
-import constants from '../../constants';
 import { MovieActions } from '../../actions';
-
-const IMAGE_URL_BASE = constants.api.IMAGE_URL + constants.api.IMAGE_SIZES.small;
+import MovieList from '../../components/MovieList';
+import Movie from '../../components/Movie';
 
 class App extends React.Component {
 
@@ -25,13 +24,11 @@ class App extends React.Component {
 
 		return (
 			<div>
-				<h1>Popular Movies {isLoading ? 'True' : 'False'}</h1>
-                { results.map(item => 
-                    <div>
-                        <p key={item.id} >{item.title}</p> 
-                        <img src={IMAGE_URL_BASE + item.backdrop_path} />
-                    </div>
-                )}
+				<h1>Popular Movies</h1>
+                <MovieList>
+                    { results.map(item => <Movie key={item.id} title={item.title} image={item.backdrop_path} />) }
+                </MovieList>
+                
                 <Waypoint onEnter={this.nextPage} />
 			</div>
 		);
