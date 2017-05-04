@@ -6,7 +6,7 @@ export function getPopularMoviesByPage(page) {
 
     return new Promise(
         (resolve, reject) => {
-            var url = `${constants.api.BASE_URL}movie/popular`;
+            let url = `${constants.api.BASE_URL}movie/popular`;
             url += `?api_key=${constants.api.KEY}`;
             url += `&page=${page}`;
 

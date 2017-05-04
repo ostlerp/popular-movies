@@ -8,12 +8,12 @@ export let HandleResponse = function (response, resolve, reject) {
                     let r = JSON.parse(json);
                     resolve(r);
                 }
-                else { resolve() };
+                else { resolve(); }
             } else {
                 reject({ _error: json || `Failed with status code ${response.status}` });
             }
         } catch (err) {
-            reject({ _error: `Failed with status code ${response.status}` })
+            reject({ _error: `Failed with status code ${response.status}` });
         }
     });
-}
+};

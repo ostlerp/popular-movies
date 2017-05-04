@@ -9,15 +9,15 @@ export const RECEIVE_MOVIES = `${namespace}RECEIVE_MOVIES`;
 let fetchingMovies = () => {
     return {
         type: FETCH_MOVIES
-    }
-}
+    };
+};
 
 let receiveMovies = (Movies) => {
     return {
         type: RECEIVE_MOVIES,
         Movies
-    }
-}
+    };
+};
 
 export let fetchMovies = (page) => {
     return dispatch => {
@@ -26,4 +26,4 @@ export let fetchMovies = (page) => {
             dispatch(receiveMovies(response));
         });
     };
-}
+};
