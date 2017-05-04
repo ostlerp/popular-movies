@@ -1,9 +1,9 @@
 import { MovieActions } from '../actions';
 
 const initialState = {
-    page: 1,
+    page: 0,
     isLoading: false, 
-    results: []
+    results: [],
 };
 
 export default function(state = initialState, action) {
@@ -11,6 +11,11 @@ export default function(state = initialState, action) {
         case MovieActions.FETCH_MOVIES:
             return Object.assign({}, state, { isLoading: true });
         case MovieActions.RECEIVE_MOVIES:
+            // easy way to shortcut results for pages we already have loaded
+            if(action.data.page <= state.page) {
+                return Object.assign({}, state, { isLoading: false }); 
+            }
+
             return Object.assign({}, state, { 
                 isLoading: false, 
                 results: state.results.concat(action.data.results), 
