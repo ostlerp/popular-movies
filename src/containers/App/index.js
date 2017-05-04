@@ -1,4 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import constants from '../../constants';
+import { MovieActions } from '../../actions';
 
 class App extends React.Component {
 
@@ -6,10 +10,14 @@ class App extends React.Component {
 		super(props);
 	}
 
+	componentDidMount() {
+		this.props.dispatch(MovieActions.fetchMovies(1));
+	}
+
 	render() {
 		return (
 			<div>
-				<h1>Popular Movies</h1>
+				<h1>Popular Movies {constants.api.KEY}</h1>
 			</div>
 		);
 	}
@@ -19,4 +27,4 @@ App.propTypes = {
 
 };
 
-export default App;
+export default connect()(App);
