@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Waypoint from 'react-waypoint';
 
 import constants from '../../constants';
 import { MovieActions } from '../../actions';
@@ -10,12 +11,14 @@ class App extends React.Component {
 
 	constructor(props) {
 		super(props);
+
+        this.nextPage = this.nextPage.bind(this);
 	}
 
-	componentDidMount() {
+    nextPage() {
         const { page } = this.props.movies;
 		this.props.dispatch(MovieActions.fetchMovies(page + 1));
-	}
+    }
 
 	render() {
         const { results, isLoading, page } = this.props.movies;
@@ -29,6 +32,7 @@ class App extends React.Component {
                         <img src={IMAGE_URL_BASE + item.backdrop_path} />
                     </div>
                 )}
+                <Waypoint onEnter={this.nextPage} />
 			</div>
 		);
 	}
