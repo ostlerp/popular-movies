@@ -1,7 +1,8 @@
 .movie {
     position: relative;
     height: 170px;
-    transition: all .2s ease-in-out;
+    transition: all .3s ease-in-out;
+    transform: scale(0);
     
     p {
         position: absolute;
@@ -17,6 +18,10 @@
 
     img {
         opacity: .3;
+    }
+
+    &.entered {
+        transform: scale(1);
     }
 }
 
