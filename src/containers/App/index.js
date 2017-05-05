@@ -21,15 +21,16 @@ class App extends React.Component {
     }
 
 	render() {
-        const { results, isLoading, page } = this.props.movies;
+        const { results } = this.props.movies;
+
+        const items = results.map(item => <Movie key={item.id} title={item.title} image={item.backdrop_path} />);
 
 		return (
 			<div>
-                <Header text="Popular Movies" />
+                <Header text="Popular" />
                 <MovieList>
-                    { results.map(item => <Movie key={item.id} title={item.title} image={item.backdrop_path} />) }
+                    { items }
                 </MovieList>
-
 
                 <Waypoint onEnter={this.nextPage} />
 			</div>

@@ -1,16 +1,29 @@
 .movie {
     position: relative;
     height: 170px;
+    transition: all .2s ease-in-out;
     
     p {
         position: absolute;
         color: white;
-        left: 10px;
+        left: 0;
         bottom: 0;
+        margin: 0;
         font-weight: bold;
+        width: calc(100% - 10px);
+        padding: 15px;
+        background: linear-gradient(to right, rgba(black, .3), rgba(black, 0));
     }
 
     img {
-        opacity: .5;
+        opacity: .3;
     }
+}
+
+.movie:hover {
+    transform: scale(1.2);
+    img {
+        opacity: 1;
+    }
+    z-index: 2;
 }
